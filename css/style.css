@@ -1,0 +1,445 @@
+@charset "UTF-8";
+@keyframes Ball {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(58vh); }
+  100% {
+    transform: translate(15vw, 50vh); } }
+@keyframes H1 {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 0.8; } }
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #fff; }
+
+a {
+  color: black;
+  text-decoration: none; }
+
+h2 {
+  color: rgba(49, 42, 49, 0.76);
+  font-family: "Malayalam MN";
+  font-size: 60px;
+  line-height: 60px;
+  font-weight: bold; }
+
+p.h2-jp {
+  color: rgba(49, 42, 49, 0.49);
+  font-family: "筑紫A丸ゴシック";
+  font-size: 15px;
+  line-height: 15px;
+  margin-bottom: 5vw; }
+
+section.offer-box {
+  width: 25vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+
+p.offer-content {
+  color: rgba(49, 42, 49, 0.64);
+  font-family: "Malayalam MN";
+  font-size: 30px;
+  line-height: 45px;
+  font-weight: bold; }
+
+div.offer-circle {
+  width: 12vw;
+  height: 12vw;
+  border-radius: 6vw;
+  overflow: hidden;
+  border: 1px solid #5D74C7; }
+
+button.offer-button {
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #A4E8E3;
+  border-style: none;
+  font-weight: bold;
+  color: rgba(49, 42, 49, 0.64);
+  font-family: "Malayalam MN";
+  font-size: 20px;
+  line-height: 20px; }
+  button.offer-button:hover {
+    background-color: #93d6d0; }
+
+section.offer-right {
+  width: 50vw;
+  height: 40vh;
+  padding: 3vh 5vh 3vh 0; }
+  section.offer-right h3 {
+    display: block;
+    height: 10vh;
+    border-bottom: 1px solid rgba(112, 112, 112, 0.6);
+    margin-bottom: 5vh;
+    color: #92a5f3;
+    font-family: "Hiragino Sans CNS";
+    font-size: 24px;
+    line-height: 60px;
+    font-weight: 600; }
+  section.offer-right p {
+    color: rgba(49, 42, 49, 0.47);
+    font-family: "Hiragino Sans CNS";
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: 600; }
+
+img#backbutton {
+  width: 106px;
+  height: 89px;
+  position: absolute;
+  top: 5vh;
+  left: 15vw; }
+
+div.performance-box {
+  width: 5vw;
+  height: 33vh;
+  margin: 0 2vw;
+  background-color: #fff; }
+
+div.scroll-slide {
+  opacity: 0;
+  transition: all 0.8s ease 0.3s; }
+
+article#top {
+  width: 100vw;
+  height: 90vh;
+  background-color: #f2f2f2;
+  text-align: center; }
+  article#top div:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -35vw;
+    width: 100vw;
+    height: 50vh;
+    background-color: rgba(167, 154, 154, 0.31);
+    transform: rotate(-45deg);
+    transform-origin: 40% 50%; }
+  article#top div ul {
+    width: 20vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 5vw;
+    left: 5vw;
+    text-align: left; }
+    article#top div ul li a {
+      color: rgba(49, 42, 49, 0.74);
+      font-family: "Malayalam MN";
+      font-size: 20px;
+      line-height: 50px; }
+  article#top div#ball {
+    width: 280px;
+    height: 280px;
+    border-radius: 140px;
+    background-color: rgba(0, 85, 201, 0.61);
+    position: absolute;
+    left: 35vw;
+    animation: Ball 1.6s ease-in-out 0s 1 normal forwards running;
+    z-index: 2; }
+    article#top div#ball:before {
+      display: none; }
+  article#top h1 {
+    color: rgba(49, 42, 49, 0.76);
+    font-family: "Malayalam MN";
+    font-size: 70px;
+    line-height: 100px;
+    font-weight: bold;
+    transform: rotate(-20deg);
+    position: absolute;
+    top: 40vh;
+    left: 60vw;
+    opacity: 0;
+    animation: H1 1s ease-in-out 1.6s 1 normal forwards running;
+    z-index: 3; }
+
+div#top-skill {
+  height: 10vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative; }
+  div#top-skill div#top-up {
+    height: 10vh;
+    width: 150vw;
+    position: absolute;
+    top: -5vh;
+    transform: rotate(3deg);
+    transform-origin: 50% 100%;
+    background-color: #f2f2f2; }
+  div#top-skill div#skill-down {
+    height: 10vh;
+    width: 150vw;
+    position: absolute;
+    top: 5vh;
+    transform: rotate(3deg);
+    transform-origin: 50% 100%;
+    background-color: rgba(178, 190, 38, 0.56); }
+
+article#skill {
+  width: 100vw;
+  height: 70vh;
+  background-color: rgba(178, 190, 38, 0.56);
+  text-align: center; }
+  article#skill div.scroll-slide {
+    transform: translatey(10vh); }
+    article#skill div.scroll-slide h3 {
+      color: rgba(162, 90, 162, 0.99);
+      font-family: "Apple LiGothic";
+      font-size: 20px;
+      line-height: 50px; }
+    article#skill div.scroll-slide p.skill-content {
+      color: #2b252b;
+      font-family: "Apple LiSung";
+      font-size: 15px;
+      line-height: 40px; }
+      article#skill div.scroll-slide p.skill-content:nth-child(6) {
+        margin-bottom: 3vw; }
+    article#skill div.scroll-slide p.skill-description {
+      color: #312a31;
+      font-family: "Apple LiSung";
+      font-size: 15px;
+      line-height: 30px; }
+
+div#skill-offer {
+  height: 20vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative; }
+  div#skill-offer div#skill-up {
+    height: 20vh;
+    width: 150vw;
+    position: absolute;
+    top: -10vh;
+    transform: rotate(6deg);
+    transform-origin: 50% 100%;
+    background-color: rgba(178, 190, 38, 0.56); }
+  div#skill-offer div#offer-down {
+    height: 20vh;
+    width: 150vw;
+    position: absolute;
+    top: 10vh;
+    transform: rotate(6deg);
+    transform-origin: 50% 100%;
+    background-color: rgba(234, 238, 253, 0.89); }
+
+section#offer {
+  width: 100vw;
+  height: 70vh;
+  background-color: rgba(234, 238, 253, 0.89);
+  text-align: center;
+  position: relative; }
+  section#offer div.scroll-slide {
+    transform: translatex(-10vw); }
+    section#offer div.scroll-slide p#offer-text {
+      color: rgba(49, 42, 49, 0.64);
+      font-family: "Apple LiSung";
+      font-size: 15px;
+      line-height: 15px;
+      margin-bottom: 5vh; }
+    section#offer div.scroll-slide div#offer-menu {
+      height: 40vh;
+      margin: 0 7vw;
+      display: flex;
+      justify-content: space-around; }
+      section#offer div.scroll-slide div#offer-menu section#company div#company-circle {
+        background-image: url(../img/company.jpg);
+        background-size: cover; }
+      section#offer div.scroll-slide div#offer-menu section#shop div#shop-circle {
+        background-image: url(../img/shop.jpg);
+        background-size: cover; }
+      section#offer div.scroll-slide div#offer-menu section#self div#self-circle {
+        background-image: url(../img/self.jpg);
+        background-size: cover; }
+
+div#offer-performance {
+  height: 20vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative; }
+  div#offer-performance div#offer-up {
+    height: 20vh;
+    width: 150vw;
+    position: absolute;
+    top: -10vh;
+    transform: rotate(-6deg);
+    transform-origin: 50% 100%;
+    background-color: rgba(234, 238, 253, 0.89); }
+  div#offer-performance div#performance-down {
+    height: 20vh;
+    width: 150vw;
+    position: absolute;
+    top: 10vh;
+    transform: rotate(-6deg);
+    transform-origin: 50% 100%;
+    background-color: rgba(176, 94, 206, 0.58); }
+
+article#performance {
+  width: 100vw;
+  height: 60vh;
+  background-color: rgba(176, 94, 206, 0.58);
+  text-align: center; }
+  article#performance div.scroll-slide {
+    transform: translate(10vw, -5vh); }
+    article#performance div.scroll-slide div#performance-content {
+      width: 70vw;
+      height: 35vh;
+      margin: 0 15vw; }
+
+div#performance-contact {
+  height: 20vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative; }
+  div#performance-contact div#performance-up {
+    height: 20vh;
+    width: 150vw;
+    position: absolute;
+    top: -10vh;
+    transform: rotate(-6deg);
+    transform-origin: 50% 100%;
+    background-color: rgba(176, 94, 206, 0.58); }
+  div#performance-contact div#contact-down {
+    height: 20vh;
+    width: 150vw;
+    position: absolute;
+    top: 10vh;
+    transform: rotate(-6deg);
+    transform-origin: 50% 100%;
+    background-color: rgba(209, 199, 199, 0.43); }
+
+form#contact {
+  width: 100vw;
+  height: 75vh;
+  background-color: rgba(209, 199, 199, 0.43);
+  text-align: center; }
+  form#contact div.scroll-slide {
+    transform: translate(-10vw, 10vh); }
+    form#contact div.scroll-slide div#contact-up {
+      width: 40vw;
+      margin: 0 25vw 0 35vw;
+      display: flex; }
+      form#contact div.scroll-slide div#contact-up div#contact-left {
+        width: 45%;
+        height: 30vh;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; }
+        form#contact div.scroll-slide div#contact-up div#contact-left p {
+          color: rgba(49, 42, 49, 0.47);
+          font-family: "Hiragino Sans CNS";
+          font-size: 18px;
+          line-height: 23px; }
+      form#contact div.scroll-slide div#contact-up div#contact-right {
+        width: 60%;
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; }
+        form#contact div.scroll-slide div#contact-up div#contact-right input {
+          width: 80%;
+          height: 15%;
+          border: 1px solid rgba(112, 112, 112, 0.7); }
+    form#contact div.scroll-slide div#contact-down {
+      width: 40vw;
+      margin: 6vh 25vw 0 35vw;
+      display: flex; }
+      form#contact div.scroll-slide div#contact-down p {
+        color: rgba(49, 42, 49, 0.47);
+        font-family: "Hiragino Sans CNS";
+        font-size: 20px;
+        line-height: 23px;
+        display: block;
+        width: 40%;
+        text-align: left; }
+      form#contact div.scroll-slide div#contact-down textarea {
+        border: 1px solid rgba(112, 112, 112, 0.7);
+        width: 19.2vw;
+        height: 20vh; }
+    form#contact div.scroll-slide div#contact-submit {
+      width: 40%;
+      margin: 2vh 30vw 0 30vw;
+      display: flex;
+      justify-content: center; }
+      form#contact div.scroll-slide div#contact-submit input {
+        width: 74px;
+        height: 40px;
+        border-radius: 20px;
+        border-style: none;
+        background-color: #56f7ec;
+        z-index: 3;
+        color: rgba(13, 12, 13, 0.47);
+        font-family: "Hiragino Sans CNS";
+        font-size: 16px;
+        line-height: 27px; }
+
+div#contact-footer {
+  height: 10vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative; }
+  div#contact-footer div#contact-up {
+    height: 20vh;
+    width: 150vw;
+    position: absolute;
+    top: -10vh;
+    transform: rotate(-6deg);
+    transform-origin: 50% 100%;
+    background-color: rgba(209, 199, 199, 0.43); }
+  div#contact-footer div#footer-down {
+    height: 10vh;
+    width: 150vw;
+    position: absolute;
+    top: 10vh;
+    transform: rotate(-6deg);
+    transform-origin: 50% 100%;
+    background-color: rgba(84, 128, 33, 0.35); }
+
+footer {
+  width: 100vw;
+  height: 5vh;
+  background-color: rgba(235, 225, 225, 0.4);
+  padding: 0 20vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  footer a {
+    color: rgba(49, 42, 49, 0.65);
+    font-family: "Hiragino Sans CNS";
+    font-size: 16px;
+    line-height: 27px; }
+
+.none {
+  display: none !important; }
+
+.padding {
+  padding-bottom: 9vh !important; }
+
+/*# sourceMappingURL=style.css.map */

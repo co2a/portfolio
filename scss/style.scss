@@ -1,0 +1,399 @@
+@mixin each-topic($height, $color) {
+  width: 100vw;
+  height: $height;
+  background-color: $color;
+  text-align: center;
+}
+@mixin two-color($height) {
+  height: $height;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+@mixin two-up($height, $halfHeight, $rotate, $backgroundc) {
+  height: $height;
+  width: 150vw;
+  position: absolute;
+  top: $halfHeight;
+  transform: rotate($rotate);
+  transform-origin: 50% 100%;
+  background-color: $backgroundc;
+}
+@mixin style($color, $family, $size, $line) {
+  color: $color;
+  font-family: $family;
+  font-size: $size;
+  line-height: $line;
+}
+@keyframes Ball {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(58vh);
+  }
+  100% {
+    transform: translate(15vw, 50vh);
+  }
+}
+@keyframes H1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+h2 {
+  @include style(rgba(49, 42, 49, 0.76), "Malayalam MN", 60px, 60px);
+  font-weight: bold;
+}
+p.h2-jp {
+  @include style(rgba(49, 42,49, 0.49), "筑紫A丸ゴシック", 15px, 15px);
+  margin-bottom: 5vw;
+}
+section.offer-box {
+  width: 25vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+p.offer-content {
+  @include style(rgba(49, 42, 49, 0.64), "Malayalam MN", 30px, 45px);
+  font-weight: bold;
+}
+div.offer-circle {
+  width: 12vw;
+  height: 12vw;
+  border-radius: 6vw;
+  overflow: hidden;
+  border: 1px solid #5D74C7;
+}
+button.offer-button {
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #A4E8E3;
+  border-style: none;
+  font-weight: bold;
+  @include style(rgba(49, 42, 49, 0.64), "Malayalam MN", 20px, 20px);
+  &:hover {
+    background-color: #93d6d0;
+  }
+}
+section.offer-right {
+  width: 50vw;
+  height: 40vh;
+  padding: 3vh 5vh 3vh 0;
+  h3 {
+    display: block;
+    height: 10vh;
+    border-bottom: 1px solid rgba(112, 112, 112, 0.6);
+    margin-bottom: 5vh;
+    @include style(rgb(146, 165, 243), "Hiragino Sans CNS", 24px, 60px);
+    font-weight: 600;
+  }
+  p {
+    @include style(rgba(49, 42, 49, 0.47), "Hiragino Sans CNS", 15px, 28px);
+    font-weight: 600;
+  }
+}
+img#backbutton {
+  width: 106px;
+  height: 89px;
+  position: absolute;
+  top: 5vh;
+  left: 15vw;
+}
+div.performance-box {
+  width: 5vw;
+  height: 33vh;
+  margin: 0 2vw;
+  background-color: #fff;
+}
+div.scroll-slide {
+  opacity: 0;
+  transition: all 0.8s ease 0.3s;
+}
+
+article#top {
+    @include each-topic(90vh, #f2f2f2);
+  div {
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -35vw;
+      width: 100vw;
+      height: 50vh;
+      background-color: rgba(167, 154, 154, 0.31);
+      transform: rotate(-45deg);
+      transform-origin: 40% 50%;
+    }
+    ul {
+      width: 20vw;
+      height: 20vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: absolute;
+      top: 5vw;
+      left: 5vw;
+      text-align: left;
+      li {
+        a {
+          @include style(rgba(49, 42, 49, 0.74), "Malayalam MN", 20px, 50px);
+        }
+      }
+    }
+  }
+  div#ball {
+    width: 280px;
+    height: 280px;
+    border-radius: 140px;
+    background-color: rgba(0, 85, 201, 0.61);
+    position: absolute;
+    left: 35vw;
+    animation: Ball 1.6s ease-in-out 0s 1 normal forwards running;
+    z-index: 2;
+
+    &:before {
+      display: none;
+    }
+  }
+  h1 {
+    @include style(rgba(49, 42, 49, 0.76), "Malayalam MN", 70px, 100px);
+    font-weight: bold;
+    transform: rotate(-20deg);
+    position: absolute;
+    top: 40vh;
+    left: 60vw;
+    opacity: 0;
+    animation: H1 1s ease-in-out 1.6s 1 normal forwards running;
+    z-index: 3;
+  }
+}
+
+div#top-skill {
+  @include two-color(10vh);
+  div#top-up {
+    @include two-up(10vh, -5vh, 3deg, #f2f2f2);
+  }
+  div#skill-down {
+    @include two-up(10vh, 5vh, 3deg, rgba(178, 190, 38, 0.56));
+  }
+}
+
+article#skill {
+  @include each-topic(70vh, rgba(178, 190, 38, 0.56));
+  div.scroll-slide {
+    transform: translatey(10vh);
+    h3 {
+      @include style(rgba(162, 90, 162, 0.99), "Apple LiGothic", 20px, 50px);
+    }
+    p.skill-content {
+      @include style(rgba(43, 37, 43, 1), "Apple LiSung", 15px, 40px);
+      &:nth-child(6) {
+        margin-bottom: 3vw;
+      }
+    }
+    p.skill-description {
+      @include style(rgba(49, 42, 49, 1), "Apple LiSung", 15px, 30px);
+    }
+  }
+}
+
+div#skill-offer {
+  @include two-color(20vh);
+  div#skill-up {
+    @include two-up(20vh, -10vh, 6deg, rgba(178, 190, 38, 0.56));
+  }
+  div#offer-down {
+    @include two-up(20vh, 10vh, 6deg, rgba(234, 238, 253, 0.89));
+  }
+}
+
+section#offer {
+  @include each-topic(70vh, rgba(234, 238, 253, 0.89));
+  position: relative;
+  div.scroll-slide {
+    transform: translatex(-10vw);
+    p#offer-text {
+      @include style(rgba(49, 42, 49, 0.64), "Apple LiSung", 15px, 15px);
+      margin-bottom: 5vh;
+    }
+    div#offer-menu {
+      height: 40vh;
+      margin: 0 7vw;
+      display: flex;
+      justify-content: space-around;
+      section#company {
+        div#company-circle {
+          background-image: url(../img/company.jpg);
+          background-size: cover;
+        }
+      }
+      section#shop {
+        div#shop-circle {
+          background-image: url(../img/shop.jpg);
+          background-size: cover;
+        }
+      }
+      section#self {
+        div#self-circle {
+          background-image: url(../img/self.jpg);
+          background-size: cover;
+        }
+      }
+      section#company-right {
+      }
+    }
+  }
+}
+
+div#offer-performance {
+  @include two-color(20vh);
+  div#offer-up {
+    @include two-up(20vh, -10vh, -6deg, rgba(234, 238, 253, 0.89));
+  }
+  div#performance-down {
+    @include two-up(20vh, 10vh, -6deg, rgba(176, 94, 206, 0.58));
+  }
+}
+
+article#performance {
+  @include each-topic(60vh, rgba(176, 94, 206, 0.58));
+  div.scroll-slide {
+    transform: translate(10vw, -5vh);
+    div#performance-content {
+      width: 70vw;
+      height: 35vh;
+      margin: 0 15vw;
+    }
+  }
+}
+
+div#performance-contact {
+  @include two-color(20vh);
+  div#performance-up {
+    @include two-up(20vh, -10vh, -6deg, rgba(176, 94, 206, 0.58));
+  }
+  div#contact-down {
+    @include two-up(20vh, 10vh, -6deg, rgba(209, 199, 199, 0.43));
+  }
+}
+
+form#contact {
+  @include each-topic(75vh, rgba(209, 199, 199, 0.43));
+  div.scroll-slide {
+    transform: translate(-10vw, 10vh);
+    div#contact-up {
+      width: 40vw;
+      margin: 0 25vw 0 35vw;
+      display: flex;
+      div#contact-left {
+        width: 45%;
+        height: 30vh;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        p {
+          @include style(rgba(49, 42, 49, 0.47), "Hiragino Sans CNS", 18px, 23px);
+        }
+      }
+      div#contact-right {
+        width: 60%;
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        input {
+          width: 80%;
+          height: 15%;
+          border: 1px solid rgba(112, 112, 112, 0.7);
+        }
+      }
+    }
+    div#contact-down {
+      width: 40vw;
+      margin: 6vh 25vw 0 35vw;
+      display: flex;
+      p {
+        @include style(rgba(49, 42, 49, 0.47), "Hiragino Sans CNS", 20px, 23px);
+        display: block;
+        width: 40%;
+        text-align: left;
+      }
+      textarea {
+        border: 1px solid rgba(112, 112, 112, 0.7);
+        width: 19.2vw;
+        height: 20vh;
+      }
+    }
+    div#contact-submit {
+      width: 40%;
+      margin: 2vh 30vw 0 30vw;
+      display: flex;
+      justify-content: center;
+      input {
+        width: 74px;
+        height: 40px;
+        border-radius: 20px;
+        border-style: none;
+        background-color: rgb(86, 247, 236);
+        z-index: 3;
+        @include style(rgba(13, 12, 13, 0.47), "Hiragino Sans CNS", 16px, 27px);
+      }
+    }
+  }
+}
+
+div#contact-footer {
+  @include two-color(10vh);
+  div#contact-up {
+    @include two-up(20vh, -10vh, -6deg, rgba(209, 199, 199, 0.43));
+  }
+  div#footer-down {
+    @include two-up(10vh, 10vh, -6deg, rgba(84, 128, 33, 0.35));
+  }
+}
+
+footer {
+  width: 100vw;
+  height: 5vh;
+  background-color: rgba(235, 225, 225, 0.4);
+  padding: 0 20vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    @include style(rgba(49, 42,49, 0.65), "Hiragino Sans CNS", 16px, 27px);
+  }
+}
+
+.none {
+  display: none!important;
+}
+.padding {
+  padding-bottom: 9vh!important;
+}
